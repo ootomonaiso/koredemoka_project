@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view port" connect="width=device-width,initial-scale=1.0">
+    <title> STEM-History - 愛知県立愛知総合工科高等学校 STEM研究部</title>
+    <link rel="stylesheet" href="css/stem_style.css">
+
+</head>
+
+<body id="wrapper">
+    <!--PC用のheader-->
+    <div id="header-container"></div><!-- ここにヘッダーを挿入 -->
+
+        <div class="text-center-text-left-wrap">
+            <ul class="text-center-text-left__child">
+            <p><br></p>
+            <p class="text"><big><u>歴代制作物コーナー</u></big></p>
+
+            <p class="text">
+                <br>「<ruby>STEM<rt>ステム</rt></ruby>研究部」では、広報活動の一環として、<br>皆さん楽しんでいただけるように、過去の活動で制作を行った「ゲーム」や「便利ツール」の一部を
+                <br>「<ruby>STEM-History<rt><small>ステム ヒストリー</small></rt></ruby>」として配信しております。</p><br>
+
+            <p class="text"><big><u><ruby>STEM<rt><small>ステム</small></rt></ruby>研究部<ruby>WEB<rt><small>ウェブ</small></rt></ruby>置き場</u></big>
+                <br>とある先輩が<ruby>WEB<rt><small>ウェブ</small></rt></ruby>制作班で制作された制作物がまとめられたサイトです。<br><br>
+
+                <img src="pic/web/STEM-WEB.png" width="683" height="384"><br><br>
+
+                サイトへのアクセスは<a href="https://stemask.bex.jp/"><u>こちら</u></a>
+
+            </p><br>
+
+            <p class="text"></p>
+            </ul>
+        </div>
+
+        <div id="footer-container"></div><!-- ここにフッターを挿入 -->
+
+        </boby>
+
+     <!-- ヘッダー・フッター読み込み用 -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    footerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+</html>

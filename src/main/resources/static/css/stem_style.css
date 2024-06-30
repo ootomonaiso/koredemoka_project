@@ -1,0 +1,290 @@
+@charset "utf-8";
+
+.red {
+   color: rgb(255, 0, 0);
+}
+
+.text-center-text-left-wrap {
+   font-size: 20px;
+   overflow: hidden;
+   margin: 16px auto;
+   text-align: center;
+   display: block;
+}
+
+.text-center-text-left__child {
+   text-align: left;
+   width: fit-content;
+   display: inline-block;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+.tabs {
+   width: 1000px;
+   margin: auto;
+   flex-wrap: wrap;
+   display: flex;
+}
+
+.tab_class {
+   width: calc(100%/5);
+   height: 45px;
+   background-color: #eee;
+   line-height: 45px;
+   font-size: 15px;
+   text-align: center;
+   display: block;
+   float: left;
+   order: -1;
+}
+
+input[name="tab_name"] {
+   display: none;
+}
+
+input:checked+.tab_class {
+   background-color: cadetblue;
+   color: aliceblue;
+}
+
+.content_class {
+   display: none;
+   width: 100%;
+   border-bottom: 3px solid #eee;
+   border-right: 3px solid #eee;
+   border-left: 3px solid #eee;
+   padding: 30px 10px;
+}
+
+input:checked+.tab_class+.content_class {
+   display: block;
+}
+
+.responsive {
+   width: 100%;
+   aspect-ratio: 16/9;
+}
+
+.iframe-wrapper {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+}
+
+.iframe-wrapper iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+iframe {
+   transform: scale(0.984375);
+   transform-origin: 0 0;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+h2 {
+   margin: 1em 0;
+   font-size: 140%;
+   font-weight: normal;
+}
+
+li {
+   list-style: none;
+}
+
+.clearfix:after {
+   content: "";
+   clear: both;
+   display: block;
+}
+
+.fl-item {
+   float: left;
+}
+
+.fl-item_box {
+   float: left;
+}
+
+.hover-item:hover {
+   height: 100%;
+}
+
+h1 {
+   float: left;
+}
+
+/*ヘッダー*/
+
+.top-list {
+   float: right;
+   margin: 1% 0 0;
+}
+
+.top-list li,
+.nav-item {
+   float: left;
+   color: #036EB8;
+}
+
+.top-list_wrap {
+   width: 100%;
+   border-bottom: 5px solid #C30D23;
+   box-sizing: border-box;
+   padding: 20px 0;
+   background-color: #1001;
+}
+
+.top-list li {
+   box-sizing: border-box;
+   padding: 2px 7px;
+}
+
+.top-list li:hover a {
+   color: #036EB8;
+}
+
+.top-list li.top-list_in {
+   padding: 0;
+}
+
+.top-list li.top-list_in a {
+   background-color: #4169e1;
+   margin-left: 8px;
+   display: block;
+   box-sizing: border-box;
+   padding: 2px 8px;
+   text-align: center;
+   color: #fff;
+}
+
+.top-list li.top-list_in a:hover {
+   background-color: #0082dc;
+}
+
+.top-list li.top-list_in:last-child {
+   margin-right: 20px;
+}
+
+.top-list li.top-list_in a.teacher {
+   background-color: #ff8c00;
+   margin-left: 8px;
+   display: block;
+   box-sizing: border-box;
+   padding: 2px 8px;
+   text-align: center;
+   color: #fff;
+}
+
+nav {
+   position: relative;
+   top: 0;
+   left: 0;
+   z-index: 6;
+   margin: 0 auto;
+}
+
+.nav-item {
+   width: 20%;
+   overflow: hidden;
+   box-sizing: border-box;
+   padding: 10px 0;
+   position: relative;
+   top: 0;
+   left: 0;
+}
+
+.nav-item:hover {
+   overflow: visible;
+}
+
+.nav-item p {
+   text-align: center;
+   box-sizing: border-box;
+   padding: 10px 0;
+}
+
+.nav-item:hover p a {
+   color: #036EB8;
+}
+
+.nav-item p a {
+   display: block;
+   width: 99%;
+   border-right: 1px solid #C9CACA;
+}
+
+ul2 {
+   display: flex;
+   text-align: center;
+}
+
+.container {
+   width: 1124px;
+   margin: 0 auto;
+}
+
+.pc-only {
+   display: block;
+}
+
+.nav-item_child .emer {
+   color: #D61619;
+   font-size: 0.6em;
+}
+
+.emer {
+   color: #D61619;
+   font-size: 0.8em;
+}
+
+html,
+body,
+div,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+ul,
+li,
+nav {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-size: 14px;
+   font-family: "ヒラギノ角ゴ W0", "Meiryo", sans-serif;
+   color: #565656;
+   text-align: left;
+   -webkit-text-size-adjust: 100%;
+   text-size-adjust: 100%;
+   line-height: 1.7;
+}
+
+a {
+   font-size: 14px;
+   font-family: "ヒラギノ角ゴ W0", "Meiryo", sans-serif;
+   outline: none;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   vertical-align: baseline;
+   background: transparent;
+   text-decoration: none;
+   color: #595757;
+}

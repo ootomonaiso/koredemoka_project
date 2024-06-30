@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view port" connect="width=device-width,initial-scale=1.0">
+    <title>アクセス - 愛知県立愛知総合工科高等学校 STEM研究部</title>
+    <link rel="stylesheet" href="css/stem_style.css">
+</head>
+
+<body id="wrapper">
+    <!--PC用のheader-->
+    <div id="header-container"></div><!-- ここにヘッダーを挿入 -->
+
+        <div class="text-center-text-left-wrap">
+            <ul class="text-center-text-left__child">
+                <h2 style="text-align: center;"><br><big><u>学校・<ruby>STEM<rt>ステム</rt></ruby>研究部へのアクセス方法</u></big></h2>
+                <div style="text-align: center;">
+                    <br><iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.795030122397!2d136.97785827576465!3d35.16173227275936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60036552d24ce595%3A0x83ca939169fb38f1!2z5oSb55-l55yM56uL5oSb55-l57eP5ZCI5bel56eR6auY562J5a2m5qCh!5e0!3m2!1sja!2sjp!4v1698367916520!5m2!1sja!2sjp"
+                        width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <img src="pic/school/access.jpg" width=842 height=595><br>
+                    <img src="pic/school/area.jpg" width=842 height=595>
+                </div>
+                <p class="text">
+                    <br><small>本校は星ヶ丘駅二番出口から徒歩4分程の位置にあり、県道60号線東山通(広小路通)に面しております。<br>二番出口を出ましたら目の目の横断歩道を渡っていただき、そのまま直進してください。<br>歩道の右手側に本校がございます。<br><br>公共交通機関での来校時には正門からお入りください。<br>正門から入ると右手側に事務室がございます。来校時などにお困りの場合はご活用ください。</small></p><br>
+        </div>
+
+        <div id="footer-container"></div><!-- ここにフッターを挿入 -->
+
+        </boby>
+
+     <!-- ヘッダー・フッター読み込み用 -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    footerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+</html>
+

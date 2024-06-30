@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view port" connect="width=device-width,initial-scale=1.0">
+    <title> 入部希望（進学希望）の方へ - 愛知県立愛知総合工科高等学校 STEM研究部</title>
+    <link rel="stylesheet" href="css/stem_style.css">
+</head>
+
+<body id="wrapper">
+    <!--PC用のheader-->
+    <div id="header-container"></div><!-- ここにヘッダーを挿入 -->
+
+        <div class="text-center-text-left-wrap">
+            <ul class="text-center-text-left__child">
+            <p><br></p>
+            <h2 style="text-align: center;"><big><u>入部希望（進学希望）の方へ</u></big><br>　</h2>
+            <p class="text">
+                <small>「<ruby>STEM<rt>ステム</rt></ruby>研究部」に興味を持っていただけた方、入部希望の方、本校進学希望の方など、<br>本校及び私たちの部活動に興味を持っていただきありがとうございます。</small></p>
+
+            <p class="text">
+                <br><big>学びに向かって挑戦するあなたを、
+                    <br>愛知総合工科高等学校一同は全力サポートします！！</big>
+            </P>
+
+            <p class="text"><br><small>このページでは受験生及び新入生に関する情報を掲載します。</small></p>
+
+            <p class="text">
+                <br>本校及び本部活動では、年に数回「学校説明・見学・体験会」、<br>「部活動説明・見学・体験会」の機会を設けております。<br><br>
+                
+                    <img src="pic/setumeikai/session1.jpg" width="400" height="300"><br>
+                    <small>写真:<ruby>MTE<rt><small>エムティーイー</small></rt></ruby>祭時の見学会の様子</small><br><br>
+
+                    ○8月上旬頃の学校説明会
+                    <br>○10月末頃の<ruby>MTE<rt><small>エムティーイー</small></rt></ruby>祭(文化祭)見学会
+                    <br>○12月上旬頃の女子中学生説明会<br><br>
+                    <small>上記以外にもイベント出展での体験会など、受験シーズン直前まで多くの体験の機会を設けております。
+                        <br>詳しくは<a href="https://aichi-te.aichi-c.ed.jp/index.html"><u>本校ホームページ</u></a>よりご確認ください。</small></p>
+
+            <p class="text"><br><small>愛知総合工科高等学校
+                    -代表連絡先-</small><br>TEL052-788-2020<br><small>9:00~18:30</small><br></p>
+
+            <p class="text"><br><small>「<ruby>STEM<rt>ステム</rt></ruby>研究部」へのお問い合わせ方法の詳細は<a
+                        href="stem_contact.html"><u>こちら</u></a></small><br></p><br>
+
+        </div>
+
+        <div id="footer-container"></div><!-- ここにフッターを挿入 -->
+
+        </boby>
+
+     <!-- ヘッダー・フッター読み込み用 -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    footerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+</html>

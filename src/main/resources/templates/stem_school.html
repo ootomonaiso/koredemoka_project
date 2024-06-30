@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view port" connect="width=device-width,initial-scale=1.0">
+    <title> 学校について - 愛知県立愛知総合工科高等学校 STEM研究部</title>
+    <link rel="stylesheet" href="css/stem_style.css">
+</head>
+
+<body id="wrapper">
+    <!--PC用のheader-->
+    <div id="header-container"></div><!-- ここにヘッダーを挿入 -->
+
+        <div class="text-center-text-left-wrap">
+            <ul class="text-center-text-left__child">
+            <p class="text"><br><big><u>学校について</u></big></p>
+            
+            <p class="text"><br><ruby>STEM<rt>ステム</rt></ruby>研究部は、愛知総合工科高等学校の部活動のひとつです。<br><br>
+               <small>愛知総合工科高等学校は<br>愛知県名古屋市千種区星が丘山手に2016年4月に開校した公立の工業高等学校です。<br>
+                「愛知県立愛知工業高等学校全日制課程」と「愛知県立東山工業高等学校」を統合して
+                <br>「東山工業高等学校」の敷地内に建設されました。<br><br></small></p>
+                
+            <img src="pic/school/exterior.jpg" width="900" height="300">
+            
+            <h3 class="text"><br><br><u>本校の教育理念</u></h3>
+           
+            <p class="text">
+                <small><br>未来を見据えた知識及び技術・技能と、感性・徳性をはじめとする<br>人間性との調和的な発達を目指す全人教育により、あふれるチャレンジ精神、自らの可能性を高め続ける向上心、
+                    <br>立ちはだかる課題や困難を乗り切る粘り強さやバイタリティ、考える力などの生きる力を育み、<br>将来、人類の夢の実現と幸福に寄与する、高大な夢と志をもった若人を育てる。</small><br>　
+            </p>
+            <h4 class="text"><br><u>本校の教育目標</u></h4>
+            <p class="text"><br>校訓:<br><big>夢志（ゆめ）実現、　輝かせ　知・技・心</big><br><br>
+                    目標:<br><big>将来、テクノロジスト･バーサタイリストとなりイノベーションを起こす</big><br><br>
+                    スローガン:<br><big>サイエンスに考え、アートに行動せよ　(Think Rationally, Act Emotionally)</big>
+                    <br><br><small>「できること」からではなく、「あるべき姿」から導いた高く、<br>明確な目的・目標を設定し、そこから逆算し、その実現に向け、<br>今やるべき事を各自が考え、最善のプロセスを用い努力する。
+                    <br><br>生徒には将来像を強く心に描いて、
+                    <br>それを実現するための努力を
+                    <br>日々実行することにより自分の夢を実現させたい。<br>そのために、教職員の指導体制の確立と
+                    <br>個々の教職員のさらなる資質向上を図り、
+                    <br>ガイダンスの機能を向上させ、
+                    <br>創意工夫を生かして教育活動の活性化に努めるとともに、<br>次の事項を教育目標として教育活動を展開する。<br><br>
+
+                    ア.総合工科の特色を生かし、
+                    <br>自らの専門分野を基幹として幅広い知識、技術・技能を学び、<br>総合的なものづくりの実践力を育成する。<br><br>
+
+                    イ.産業界と連携した実践的な学びを通じて、
+                    <br>課題発見力、課題解決力及び自ら学び自らを律する能力を育成する。<br><br>
+
+                    ウ.グローバル社会に対応する多様な価値観を
+                    <br>理解しようとする態度と優れたコミュニケーション能力を育成する。</small><br><br><br></p>
+
+            <p style="text-align: center;">
+                愛知県立愛知総合工科高等学校<br><small>Aichi High School of Technology and Engineering</small><br><br><small>所在地</small><br>〒464-0808　愛知県名古屋市千種区星が丘山手107<br><br><small>お問い合わせ番号</small><br>Tel:052-788-2020<br>Fax:052-783-1311<br>　</p>
+            </ul>
+        </div>
+
+        <div id="footer-container"></div><!-- ここにフッターを挿入 -->
+
+        </boby>
+
+        <!-- ヘッダー・フッター読み込み用 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    footerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+</html>

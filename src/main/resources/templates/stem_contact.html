@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="view port" connect="width=device-width,initial-scale=1.0">
+    <title> お問い合わせ - 愛知県立愛知総合工科高等学校 STEM研究部</title>
+    <link rel="stylesheet" href="css/stem_style.css">
+</head>
+
+<body id="wrapper">
+    <!--PC用のheader-->
+    <div id="header-container"></div><!-- ここにヘッダーを挿入 -->
+
+        <div class="text-center-text-left-wrap">
+            <ul class="text-center-text-left__child">
+            <p><br></p>
+            <h2 style="text-align: center;"><big><u>お問い合わせ</u></big><br>　</h2>
+            <p class="text">
+                <small>「<ruby>STEM<rt>ステム</rt></ruby>研究部」に関するご質問、ご要望、ご連絡等は以下の方法からお問い合わせください。<br>「<ruby>STEM<rt>ステム</rt></ruby>研究部」への直接のお問い合わせは以下に記載の直通メールアドレスにて承ります。<br>※<ruby>STEM<rt>ステム</rt></ruby>研究部への直通メールアドレスは現在試験中です。</small>
+            </p>
+
+            <p class="text"><br><big><u>メールによるお問い合わせ</u></big><br><small>STEM研究部
+                    -直通メールアドレス-</small><br>ask_stemclub@meruado.uk<br><small>※直通メールアドレスは現在試験中です。</small><br>　<br><small>愛知総合工科高等学校
+                    -代表メールアドレス-</small><br>career@aichi-te.aichi-c.ed.jp</P>
+
+            <p class="text"><big><br><u>お電話によるお問い合わせ</u></big><br><small>愛知総合工科高等学校
+                    -代表連絡先-</small><br>TEL:052-788-2020<br><small>9:00~18:30</small><br></p>
+
+            <p class="text"><big><br><u><ruby>FAX<rt><small>ファックス</small></rt></ruby>によるお問い合わせ</u></big><br><small>愛知総合工科高等学校
+                    -FAX番号-</small><br>FAX:052-783-1311</small></p>
+
+            <p class="text"><br><big><u>WEBサイト製作者へのお問い合わせ</u></big><br><small>WEBサイト製作者直通メールアドレス</small><br>clearsky0373@gmail.com<br>　</P>
+
+            <p class="text"><small>入部希望（進学希望）の方など、学校説明会等の詳細を知りたい方は<a
+                        href="stem_join.html"><u>こちら</u></a></small></p><br>
+        </div>
+
+        <div id="footer-container"></div><!-- ここにフッターを挿入 -->
+
+        </boby>
+
+     <!-- ヘッダー・フッター読み込み用 -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
+            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+
+            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
+                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
+                .then(html => { //htmlをヘッダーのコンテナに代入する
+                    footerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+        });
+    </script>
+
+</html>
