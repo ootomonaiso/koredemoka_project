@@ -1,23 +1,33 @@
-
-<!-- 既存のウェブサイトの内容 -->
-
-<!-- コメントシステムのポップアップボタン -->
-<button id="open-popup">お問い合わせはこちら</button>
-
-<!-- コメントシステムのポップアップ -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close-button">&times;</span>
-    <div id="comments-container">
-      <h2>コメント</h2>
-      <ul id="comments-list">
-        <!-- コメントがここに追加されます -->
-      </ul>
-      <input id="nickname-input" type="text" placeholder="ニックネームを入力">
-      <textarea id="comment-input" placeholder="内容を入力"></textarea>
-      <button onclick="addComment()">コメント投稿</button>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コメントシステム</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/comments.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <button id="open-popup">お問い合わせはこちら</button>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <div id="comments-container">
+                <h2>コメント</h2>
+                <ul id="comments-list">
+                    <!-- コメントリストを表示 -->
+                    <th:block th:each="comment : ${comments}">
+                        <li>
+                            <strong th:text="${comment.nickname}">ニックネーム</strong>: <span th:text="${comment.text}">コメント内容</span>
+                        </li>
+                    </th:block>
+                </ul>
+                <input id="nickname-input" type="text" placeholder="ニックネームを入力">
+                <textarea id="comment-input" placeholder="内容を入力"></textarea>
+                <button onclick="addComment()">コメント投稿</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<script src="js/script.js"></script>
+    <div id="footer-container"></div>
+</body>
+</html>

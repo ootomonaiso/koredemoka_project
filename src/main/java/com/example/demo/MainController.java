@@ -1,21 +1,22 @@
 package com.example.demo;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-    private final JdbcTemplate jdbcTemplate;
+
+    private final CommentService commentService;
 
     @Autowired
-    public MainController(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public MainController(CommentService commentService) {
+        this.commentService = commentService;
     }
 
     @GetMapping("/") // ホーム
@@ -23,63 +24,74 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/show_result")
-    public String show_resultGet(Model model) {
-        try {
-            List<Map<String, Object>> searchResult = jdbcTemplate.queryForList("SELECT * FROM log");
-            model.addAttribute("searchResult", searchResult);
-        } catch (Exception e) {
-            model.addAttribute("error", "データの取得に失敗しました: " + e.getMessage());
-        }
-        return "show_result";
+    @GetMapping("/chat") // チャットページ
+    public String chatGet(Model model) {
+        List<Comment> comments = commentService.getAllComments();
+        model.addAttribute("comments", comments);
+        return "chat";
     }
-    
-    @GetMapping("/stem_access") 
+
+    @PostMapping("/add_comment")
+    public String addComment(@RequestParam String nickname, @RequestParam String text) {
+        Comment comment = new Comment();
+        comment.setNickname(nickname);
+        comment.setText(text);
+        commentService.saveComment(comment);
+        return "redirect:/chat";
+    }
+
+    @PostMapping("/delete_comment")
+    public String deleteComment(@RequestParam Long id) {
+        commentService.deleteComment(id);
+        return "redirect:/chat";
+    }
+
+    @GetMapping("/stem_access")
     public String stem_accessGet(Model model) {
         return "stem_access";
     }
 
-    @GetMapping("/stem_award") 
+    @GetMapping("/stem_award")
     public String stem_awardGet(Model model) {
         return "stem_award";
     }
-    
-    @GetMapping("/stem_contact") 
+
+    @GetMapping("/stem_contact")
     public String stem_contactGet(Model model) {
         return "stem_contact";
     }
-    
-    @GetMapping("/stem_gaiyou") 
+
+    @GetMapping("/stem_gaiyou")
     public String stem_gaiyouGet(Model model) {
         return "stem_gaiyou";
     }
-    
-    @GetMapping("/stem_history") 
+
+    @GetMapping("/stem_history")
     public String stem_historyGet(Model model) {
         return "stem_history";
     }
-    
-    @GetMapping("/stem_housin") 
+
+    @GetMapping("/stem_housin")
     public String stem_housinGet(Model model) {
         return "stem_housin";
     }
-    
-    @GetMapping("/stem_join") 
+
+    @GetMapping("/stem_join")
     public String stem_joinGet(Model model) {
         return "stem_join";
     }
-    
-    @GetMapping("/stem_member") 
+
+    @GetMapping("/stem_member")
     public String stem_membrGet(Model model) {
         return "stem_member";
     }
-    
-    @GetMapping("/stem_question") 
+
+    @GetMapping("/stem_question")
     public String stem_questionGet(Model model) {
         return "stem_question";
     }
-    
-    @GetMapping("/stem_school") 
+
+    @GetMapping("/stem_school")
     public String stem_schoolGet(Model model) {
         return "stem_school";
     }
