@@ -40,34 +40,30 @@
         <div id="footer-container"></div><!-- ここにフッターを挿入 -->
 
         </boby>
-
-     <!-- ヘッダー・フッター読み込み用 -->
-     <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
-            const headerTemplateUrl = 'https://ask-web.github.io/STEM/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+            const headerTemplateUrl = 'https://ootomonaiso.github.io/header/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
 
             fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
                 .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
-                .then(html => { //htmlをヘッダーのコンテナに代入する
+                .then(html => { //htmlをヘッダーのコンテナに代入する　
                     headerContainer.innerHTML = html;
                 })
                 .catch(error => console.error('Header template fetch error:', error)); //一応エラーログを書き出す機能
         });
     </script>
-
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-            const footerContainer = document.getElementById('footer-container'); //フッターを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
-            const footerTemplateUrl = 'https://ask-web.github.io/STEM/footer.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+            const footerContainer = document.getElementById('footer-container'); 
+            const footerTemplateUrl = 'https://ootomonaiso.github.io/header/footer.html'; 
 
-            fetch(footerTemplateUrl) //URLからフッターのテンプレ参照リンク先のフッターにはスタイル書かなくても表示側で指定してやれば動く
-                .then(response => response.text()) //レスポンスを受けたらテキストに書き出しする
-                .then(html => { //htmlをヘッダーのコンテナに代入する
+            fetch(footerTemplateUrl) 
+                .then(response => response.text()) 
+                .then(html => { 
                     footerContainer.innerHTML = html;
                 })
-                .catch(error => console.error('Footer template fetch error:', error)); //一応エラーログを書き出す機能
+                .catch(error => console.error('Footer template fetch error:', error));
         });
     </script>
-
 </html>
