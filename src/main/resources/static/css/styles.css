@@ -103,3 +103,14 @@ button:hover {
     font-size: 20px;
     cursor: pointer;
 }
+
+#chat-frame {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; /* チャットウィンドウの適切な幅に調整してください */
+    height: 400px; /* チャットウィンドウの適切な高さに調整してください */
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* 他の要素よりも上に表示されるようにします */
+}
