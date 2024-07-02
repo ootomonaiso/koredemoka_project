@@ -1,7 +1,7 @@
+// scriptタグにあったやつを関数にした
 document.addEventListener('DOMContentLoaded', function() {
     const headerContainer = document.getElementById('header-container');
     const footerContainer = document.getElementById('footer-container');
-    const chatContainer = document.getElementById('chat-container');
     const url = window.location.pathname;
 
     let headerTemplateUrl, footerTemplateUrl, chatTemplateUrl;
@@ -9,11 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (url === '/chat') {
         headerTemplateUrl = '/chat/header';
         footerTemplateUrl = '/chat/footer';
-        chatTemplateUrl = '/chat';
     } else {
         headerTemplateUrl = '/header';
         footerTemplateUrl = '/footer';
-        chatTemplateUrl = '/showchat';
     }
 
     fetch(headerTemplateUrl)
@@ -29,11 +27,4 @@ document.addEventListener('DOMContentLoaded', function() {
             footerContainer.innerHTML = html;
         })
         .catch(error => console.error('Footer fetch error:', error));
-
-    fetch(chatTemplateUrl)
-        .then(response => response.text())
-        .then(html => {
-            chatContainer.innerHTML = html;
-        })
-        .catch(error => console.error('Chat template fetch error:', error));
 });

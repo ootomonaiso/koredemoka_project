@@ -84,7 +84,7 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 1001; /* 適切なz-indexを設定 */
+    z-index: 1001; 
 }
 
 .popup-content {
@@ -104,6 +104,7 @@ button:hover {
     cursor: pointer;
 }
 
+/*ごり押しチャット実装ゾーン*/
 #chat-frame {
     position: fixed;
     bottom: 20px;
