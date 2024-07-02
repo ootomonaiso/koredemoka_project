@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>コメントシステム</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/comments.js"></script>
 </head>
 <body>
@@ -18,13 +19,19 @@
                     <!-- コメントリストを表示 -->
                     <th:block th:each="comment : ${comments}">
                         <li>
-                            <strong th:text="${comment.nickname}">ニックネーム</strong>: <span th:text="${comment.text}">コメント内容</span>
+                            <strong th:text="${comment.user}">ユーザー</strong>: <span th:text="${comment.content}">コメント内容</span>
                         </li>
                     </th:block>
                 </ul>
                 <input id="nickname-input" type="text" placeholder="ニックネームを入力">
                 <textarea id="comment-input" placeholder="内容を入力"></textarea>
-                <button onclick="addComment()">コメント投稿</button>
+                <button id="add-comment">コメント投稿</button>
+            </div>
+            <div id="past-comments-container">
+                <h2>過去のコメント</h2>
+                <ul id="past-comments-list">
+                    <!-- 過去のコメントリストを表示 -->
+                </ul>
             </div>
         </div>
     </div>

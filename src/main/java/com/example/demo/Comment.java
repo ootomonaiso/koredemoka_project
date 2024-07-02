@@ -1,25 +1,23 @@
 package com.example.demo;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "log") // テーブル名を "log" に設定
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nickname;
-    private String text;
-    private LocalDateTime timestamp;
+    private String user;
+    private String content;
 
-    // Getters and setters
-
+    // ゲッターとセッター
     public Long getId() {
         return id;
     }
@@ -28,27 +26,19 @@ public class Comment {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUser() {
+        return user;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setContent(String content) {
+        this.content = content;
     }
 }

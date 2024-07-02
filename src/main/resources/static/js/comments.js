@@ -1,29 +1,64 @@
-// コメントを表示する関数
-function displayComments() {
-  fetch("/show_result")
-    .then(response => response.json())
-    .then(comments => {
-      const commentsList = document.getElementById("comments-list");
-      commentsList.innerHTML = "";
-      comments.forEach(comment => {
-        const listItem = document.createElement("li");
-        listItem.className = "comment";
+$(document).ready(function() {
+    // ページ読み込み時に過去のコメントを取得して表示
+    loadPastComments();
 
-        const nicknameElem = document.createElement("div");
-        nicknameElem.className = "nickname";
-        nicknameElem.textContent = comment.nickname;
+    // コメント投稿ボタンのクリックイベント
+    $('#add-comment').on('click', function() {
+        addComment();
+    });
 
-        const textElem = document.createElement("div");
-        textElem.textContent = comment.text;
+    // お問い合わせはこちらボタンのクリックイベント
+    $('#open-popup').on('click', function() {
+        $('#popup').css('display', 'block');
+    });
 
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "削除";
-        deleteButton.onclick = () => deleteComment(comment.id);
+    // ポップアップの閉じるボタンのクリックイベント
+    $('.close-button').on('click', function() {
+        $('#popup').css('display', 'none');
+    });
+});
 
-        listItem.appendChild(nicknameElem);
-        listItem.appendChild(textElem);
-        listItem.appendChild(deleteButton);
-        commentsList.appendChild(listItem);
-      });
+function loadPastComments() {
+    $.ajax({
+        url: "/api/past-comments",
+        type: "GET",
+        success: function(comments) {
+            // 成功時の処理
+            console.log("過去のコメントを取得しました:", comments);
+            var pastCommentsList = $('#past-comments-list');
+            pastCommentsList.empty();
+            comments.forEach(function(comment) {
+                var listItem = $('<li>').text(comment.user + ': ' + comment.content);
+                pastCommentsList.append(listItem);
+            });
+        },
+        error: function(xhr, status, error) {
+            // エラー時の処理
+            console.error("過去のコメントを取得できませんでした:", status, error);
+        }
+    });
+}
+
+// コメント投稿する関数
+function addComment() {
+    var nickname = $('#nickname-input').val();
+    var text = $('#comment-input').val();
+
+    $.ajax({
+        type: 'POST',
+        url: '/api/add-comment',
+        data: {
+            nickname: nickname,
+            text: text
+        },
+        success: function() {
+            // コメント追加成功時の処理
+            loadPastComments(); // 過去コメントを再読み込み
+            $('#nickname-input').val(''); // 入力フォームをクリア
+            $('#comment-input').val(''); // 入力フォームをクリア
+        },
+        error: function() {
+            alert('コメントの投稿に失敗しました。');
+        }
     });
 }

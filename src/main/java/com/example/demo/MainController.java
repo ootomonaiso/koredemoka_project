@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
@@ -20,7 +22,7 @@ public class MainController {
     }
 
     @GetMapping("/") // ホーム
-    public String mainGet(Model model) {
+    public String mainGet() {
         return "index";
     }
 
@@ -31,19 +33,16 @@ public class MainController {
         return "chat";
     }
 
-    @PostMapping("/add_comment")
-    public String addComment(@RequestParam String nickname, @RequestParam String text) {
-        Comment comment = new Comment();
-        comment.setNickname(nickname);
-        comment.setText(text);
+    @PostMapping("/api/add-comment")
+    @ResponseBody
+    public void addComment(@RequestBody Comment comment) {
         commentService.saveComment(comment);
-        return "redirect:/chat";
     }
 
-    @PostMapping("/delete_comment")
-    public String deleteComment(@RequestParam Long id) {
+    @PostMapping("/api/delete-comment/{id}") // コメント削除
+    @ResponseBody
+    public void deleteComment(@PathVariable Long id) {
         commentService.deleteComment(id);
-        return "redirect:/chat";
     }
 
     @GetMapping("/stem_access")
@@ -82,7 +81,7 @@ public class MainController {
     }
 
     @GetMapping("/stem_member")
-    public String stem_membrGet(Model model) {
+    public String stem_memberGet(Model model) {
         return "stem_member";
     }
 
