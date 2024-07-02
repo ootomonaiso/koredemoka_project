@@ -187,7 +187,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const headerContainer = document.getElementById('header-container'); //ヘッダーを挿入するコンテナを取得(document.~(header~)が要素名となるためdiv id = カッコ内の要素名でほかのものでも動作可能)
-            const headerTemplateUrl = 'https://ootomonaiso.github.io/header/header.html'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
+            const headerTemplateUrl = 'http://localhost:8080/header'; //githubpagesのリンクの形式で書くちゃんとしたリンクにしないとダメ
 
             fetch(headerTemplateUrl) //URLからヘッダーのテンプレ参照リンク先のヘッダーにはスタイル書かなくても表示側で指定してやれば動く
                 .then(response => response.text()) //レスポンスを受けたらテキストに書き出し
@@ -200,7 +200,7 @@
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
             const footerContainer = document.getElementById('footer-container'); 
-            const footerTemplateUrl = 'https://ootomonaiso.github.io/header/footer.html'; 
+            const footerTemplateUrl = 'http://localhost:8080/footer'; 
 
             fetch(footerTemplateUrl) 
                 .then(response => response.text()) 

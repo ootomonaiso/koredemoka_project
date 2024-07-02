@@ -76,9 +76,9 @@ public class MainController {
         return "stem_history";
     }
 
-    @GetMapping("/stem_housin")
-    public String stem_housinGet(Model model) {
-        return "stem_housin";
+    @GetMapping("/stem_hoshin")
+    public String stem_hoshinGet(Model model) {
+        return "stem_hoshin";
     }
 
     @GetMapping("/stem_join")
@@ -99,5 +99,15 @@ public class MainController {
     @GetMapping("/stem_school")
     public String stem_schoolGet(Model model) {
         return "stem_school";
+    }
+    
+    @GetMapping("/footer")
+    public String footerGet(Model model) {
+        return "footer";
+    }
+    
+    @GetMapping("/header")
+    public String headerGet(Model model) {
+        return "header";
     }
 }
