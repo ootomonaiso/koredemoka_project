@@ -39,18 +39,21 @@ function loadPastComments() {
     });
 }
 
-// コメント投稿する関数
 function addComment() {
     var nickname = $('#nickname-input').val();
     var text = $('#comment-input').val();
 
+    // コメントデータをJSON形式で作成
+    var commentData = {
+        user: nickname,
+        content: text
+    };
+
     $.ajax({
         type: 'POST',
         url: '/api/add-comment',
-        data: {
-            nickname: nickname,
-            text: text
-        },
+        data: JSON.stringify(commentData), // JSON形式に変換して送信
+        contentType: 'application/json', // コンテンツタイプをJSONに設定
         success: function() {
             // コメント追加成功時の処理
             loadPastComments(); // 過去コメントを再読み込み

@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -33,11 +32,18 @@ public class MainController {
         return "chat";
     }
 
-    @PostMapping("/api/add-comment")
+    @GetMapping("/api/past-comments") // 過去のコメント取得
     @ResponseBody
-    public void addComment(@RequestBody Comment comment) {
-        commentService.saveComment(comment);
+    public List<Comment> getPastComments() {
+        return commentService.getAllComments();
     }
+
+    // /api/add-comment のエンドポイントを削除
+    // @PostMapping("/api/add-comment")
+    // @ResponseBody
+    // public void addComment(@RequestBody Comment comment) {
+    //     commentService.saveComment(comment);
+    // }
 
     @PostMapping("/api/delete-comment/{id}") // コメント削除
     @ResponseBody
