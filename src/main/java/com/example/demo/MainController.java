@@ -101,6 +101,11 @@ public class MainController {
         return "stem_school";
     }
     
+    @GetMapping("/showchat")
+    public String showchatGet(Model model) {
+        return "chat";
+    }
+    
     @GetMapping("/footer")
     public String footerGet(Model model) {
         return "footer";

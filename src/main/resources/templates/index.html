@@ -7,6 +7,8 @@
 	<title>ホーム - 愛知県立愛知総合工科高等学校 STEM研究部</title>
 	<link rel="stylesheet" href="/css/stem_style.css">
 	<link rel="stylesheet" href="/css/styles.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/comments.js"></script>
 </head>
 <body id="wrapper">
 	<main>
@@ -62,6 +64,19 @@
                     footerContainer.innerHTML = html;
                 })
                 .catch(error => console.error('Footer template fetch error:', error));
+        });
+    </script>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.getElementById('chat-container'); 
+            const chatTemplateUrl = 'http://localhost:8080/showchat'; 
+
+            fetch(chatTemplateUrl) 
+                .then(response => response.text()) 
+                .then(html => { 
+                    chatContainer.innerHTML = html;
+                })
+                .catch(error => console.error('chat template fetch error:', error));
         });
     </script>
 </html>

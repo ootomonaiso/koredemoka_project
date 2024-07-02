@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     // コメント投稿ボタンのクリックイベント
     $('#add-comment').on('click', function() {
+        console.log('コメント投稿ボタンがクリックされました');
         addComment();
     });
 
@@ -56,6 +57,7 @@ function addComment() {
         contentType: 'application/json', // コンテンツタイプをJSONに設定
         success: function() {
             // コメント追加成功時の処理
+            console.log('コメントが追加されました');
             loadPastComments(); // 過去コメントを再読み込み
             $('#nickname-input').val(''); // 入力フォームをクリア
             $('#comment-input').val(''); // 入力フォームをクリア
