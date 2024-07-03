@@ -1,4 +1,5 @@
 // scriptタグにあったやつを関数にした
+// 新規追加js
 document.addEventListener('DOMContentLoaded', function() {
     const headerContainer = document.getElementById('header-container');
     const footerContainer = document.getElementById('footer-container');

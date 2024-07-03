@@ -25,14 +25,14 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/chat") // チャットページ
+    @GetMapping("/chat") 
     public String chatGet(Model model) {
-        List<Comment> comments = commentService.getAllComments();
+        List<Comment> comments = commentService.getAllComments();// commentServiceのgetAllCommentsの処理を走らせる
         model.addAttribute("comments", comments);
         return "chat";
     }
 
-    @GetMapping("/api/past-comments") // 過去のコメント取得
+    @GetMapping("/api/past-comments") // 過去のコメント取得APIのお呼び出し
     @ResponseBody
     public List<Comment> getPastComments() {
         return commentService.getAllComments();
@@ -51,6 +51,8 @@ public class MainController {
         commentService.deleteComment(id);
     }
 
+    // ここから下はトップページ表示用のリンク宣言
+    // getmapping(/---)でそのリクエストを受けたこと returnの戻り値でサイトの静的ファイルを連れてくる
     @GetMapping("/stem_access")
     public String stem_accessGet(Model model) {
         return "stem_access";

@@ -6,18 +6,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
+// モデル部分 
+@Entity // これはエンティティ
 @Table(name = "log") // テーブル名を "log" に設定
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // IDの自動入力
     private Long id;
 
-    private String user;
+    // リクエストされたuserとcontentの代入ゾーン
+    private String user; 
     private String content;
 
-    // ゲッターとセッター
+    // 血と汗と涙とコーヒーのゲッターとセッター
+    // ゲッダーは完ぺきで究極のデータベースデータをゲットします
+    // セッターはデータベースにGoシュートします
     public Long getId() {
         return id;
     }
