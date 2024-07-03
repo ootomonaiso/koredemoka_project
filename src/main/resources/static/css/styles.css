@@ -84,8 +84,7 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 1001;
-    display: flex;
+    z-index: 1001; 
 }
 
 .popup-content {
@@ -95,6 +94,7 @@ button:hover {
     width: 90%;
     max-width: 600px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .close-button {
@@ -105,7 +105,7 @@ button:hover {
     cursor: pointer;
 }
 
-/* ごり押しチャット実装ゾーン */
+/*ごり押しチャット実装ゾーン*/
 #chat-frame {
     position: fixed;
     top: 0;
@@ -114,20 +114,4 @@ button:hover {
     height: 100vh; /* 画面高さいっぱいに広げる */
     border: none;
     z-index: 1000;
-}
-
-/* メディアクエリ */
-@media (max-width: 600px) {
-    .popup-content {
-        width: 90%;
-        padding: 10px;
-    }
-
-    #nickname-input, #comment-input {
-        padding: 10px;
-    }
-
-    button {
-        padding: 10px 20px;
-    }
 }
