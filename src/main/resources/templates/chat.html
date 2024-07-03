@@ -9,9 +9,16 @@
 </head>
 <body>
     <button id="open-popup">お問い合わせはこちら</button>
+    
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close-button">&times;</span>
+            <div id="past-comments-container">
+                <h2>過去のコメント</h2>
+                <ul id="past-comments-list">
+                    <!-- 過去のコメントリストを表示 -->
+                </ul>
+            </div>
             <div id="comments-container">
                 <h2>コメント</h2>
                 <ul id="comments-list">
@@ -20,12 +27,6 @@
                 <input id="nickname-input" type="text" placeholder="ニックネームを入力">
                 <textarea id="comment-input" placeholder="内容を入力"></textarea>
                 <button id="add-comment">コメント投稿</button>
-            </div>
-            <div id="past-comments-container">
-                <h2>過去のコメント</h2>
-                <ul id="past-comments-list">
-                    <!-- 過去のコメントリストを表示 -->
-                </ul>
             </div>
         </div>
     </div>

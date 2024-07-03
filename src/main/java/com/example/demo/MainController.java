@@ -38,7 +38,7 @@ public class MainController {
         return commentService.getAllComments();
     }
 
-    // /api/add-comment のエンドポイントを削除
+    // /api/add-comment のエンドポイントを削除競合しちゃった
     // @PostMapping("/api/add-comment")
     // @ResponseBody
     // public void addComment(@RequestBody Comment comment) {
