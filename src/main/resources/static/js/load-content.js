@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerContainer = document.getElementById('footer-container');
     const url = window.location.pathname;
 
-    let headerTemplateUrl, footerTemplateUrl, chatTemplateUrl;
+    let headerTemplateUrl, footerTemplateUrl;
 
     if (url === '/chat') {
         headerTemplateUrl = '/chat/header';

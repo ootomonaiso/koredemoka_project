@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 // ビジネスロックの処理するサービスのコントローラー
-@RestController // Rustで実装
+@RestController 
 @RequestMapping("/api") // ベースのリンク/apiに指定
 public class CommentApiController {
 
